@@ -21,7 +21,7 @@ while s < len(col1):
     col1[col1.index(max1)] = 0
     col2[col2.index(max2)] = 0
     
-    s += 1
+    s = s+1
 x=0
 cont=0
 while (x<len(col1)):

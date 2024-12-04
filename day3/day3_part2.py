@@ -1,5 +1,5 @@
 import re
-with open('C:/Users/p.viñolas/Desktop/AoC/day3/day3.txt', 'r') as archivo:
+with open('day3.txt', 'r') as archivo:
     texto=archivo.read()
 
 i=0

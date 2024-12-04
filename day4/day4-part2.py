@@ -1,6 +1,5 @@
 import re
-import pandas as pd
-with open('C:/Users/p.viñolas/Desktop/AoC/day4/day4.txt', 'r') as archivo:
+with open('day4.txt', 'r') as archivo:
     texto=archivo.read()
 data=[]
 for fila in texto.splitlines():

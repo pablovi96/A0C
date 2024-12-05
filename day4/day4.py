@@ -10,7 +10,6 @@ nc=len(data[0])
 i=0
 j =0
 cont=0
-print(nf,nc)
 while i<nc:
     j=0
     while j<nf:

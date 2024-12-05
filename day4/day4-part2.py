@@ -11,7 +11,6 @@ i=1
 j =0
 cont=0
 cont2=0
-print(nf,nc)
 while i<nc-1:
     j=1
     while j<nf-1:

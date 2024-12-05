@@ -1,6 +1,6 @@
 datos=[]
 cont=0
-with open('C:/Users/p.viñolas/Desktop/AoC/day2/day2.txt', 'r') as archivo:
+with open('day2.txt', 'r') as archivo:
     for linea in archivo:
         linea = linea.strip()
         numeros = list(map(float, linea.split()))

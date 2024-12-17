@@ -4,7 +4,7 @@ with open("C:/Users/p.viñolas/Desktop/AoC/day11/day11.txt", "r") as archivo:
        columnas=linea.split()
 j=0
 par=0
-while j<36:
+while j<40:
     i=0
     val=[]
     par=0
@@ -27,8 +27,7 @@ while j<36:
     columnas=[]
     columnas=val.copy()
     j=j+1
-    print((val[1]))
-print(len(val))
+    print((val[0]))
 
 
 # 11 15 23 37 53 78 125

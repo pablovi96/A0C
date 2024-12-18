@@ -22,12 +22,14 @@ with open("C:/Users/p.viñolas/Desktop/AoC/day14/day14.txt", "r") as archivo:
 pos_end=posiciones.copy()
 t=2000
 k=False
+max=0
+
 while t<9000:
-    cont1=0
-    cont2=0
-    cont3=0
-    cont4=0
+    cont=0
     i=0
+    newy=pos_end[0][1]
+    max=0
+    max1=0
     while i<len(posiciones):
         [x,y]=pos_end[i]
         x=x+velocidades[i][0]
@@ -42,34 +44,25 @@ while t<9000:
         elif y>=103:
             y=y-103
         pos_end[i]=[x,y]
-        if x<50 and y<51:
-            cont1=cont1+1
-        elif x>50 and y <51:
-            cont2=cont2+1
-        elif x<50 and y>51:
-            cont3=cont3+1
-        elif x>50 and y>51:
-            cont4=cont4+1
+        if newy==y:
+            cont=cont+1
+        else:
+            newy=y
+            cont=0
+        if cont>max1:
+            max1=cont
         i=i+1
-    if cont4+cont3==2*(cont1+cont2):
-        k=True
-        print(t)
+
+    if max1>max:
+            print(t)
+            max=max1
+            m, n = 101, 103 
+            matriz = [['-' for _ in range(n)] for _ in range(m)]
+            for x, y in pos_end:
+                matriz[x][y] = 'X'
+
+            for fila in matriz:
+                print(" ".join(fila))
+
     t=t+1
-    if k==True:
-
-
-        m, n = 101, 103 
-
-        matriz = [['-' for _ in range(n)] for _ in range(m)]
-
-
-
-        for x, y in pos_end:
-            matriz[x][y] = '0'
-
-        for fila in matriz:
-            print(" ".join(fila))
-
-        k=False
-
 

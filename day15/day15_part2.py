@@ -4,34 +4,48 @@ data=[]
 for fila in texto.splitlines():
     data.append(fila)
 data = [list(row) for row in data]
+data2=[]
 i=0
 for fila in data:
     j=0
     for element in fila:
+        data2.append([])  
+        if element=='#':
+            data2[i].append('#')
+            data2[i].append('#')
+        elif element=='.':
+            data2[i].append('.')
+            data2[i].append('.')
+        elif element=='O':
+            data2[i].append('[')
+            data2[i].append(']')
         if element=='@':
-           x=i
-           y=j
-           break
-        j=j+1
+            x=i
+            y=j
+            data2[i].append('@')
+            data2[i].append('.')
+        j=j+2
     i=i+1
 cont=0
+print(data2)
 with open('C:/Users/p.viñolas/Desktop/AoC/day15/day15.txt', 'r') as archivo:
     texto=archivo.read()
 
 for order in texto:
     if order=='<':
-        if data[x][y-1]=='.':
+        if data2[x][y-1]=='.':
             data[x][y]='.'
             data[x][y-1]='@'
             y=y-1
-        elif data[x][y-1]=='O':
-            i=y-1
+        elif data[x][y-1]==']':
+            i=y-2
             while (1):
                 
                 if data[x][i]=='#':
                     break
                 elif data[x][i]=='.':
-                    data[x][i]='O'
+                    data[x][i]='['
+                    data[x][i+1]=']'
                     data[x][y-1]='@'
                     data[x][y]='.'
                     y=y-1

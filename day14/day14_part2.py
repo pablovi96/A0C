@@ -1,5 +1,6 @@
 import time
 import numpy as np
+from itertools import combinations
 
 posiciones = []
 velocidades = []
@@ -22,14 +23,11 @@ with open("C:/Users/p.viñolas/Desktop/AoC/day14/day14.txt", "r") as archivo:
 pos_end=posiciones.copy()
 t=2000
 k=False
-max=0
+mod=1000
 
 while t<9000:
     cont=0
     i=0
-    newy=pos_end[0][1]
-    max=0
-    max1=0
     while i<len(posiciones):
         [x,y]=pos_end[i]
         x=x+velocidades[i][0]
@@ -44,25 +42,22 @@ while t<9000:
         elif y>=103:
             y=y-103
         pos_end[i]=[x,y]
-        if newy==y:
-            cont=cont+1
-        else:
-            newy=y
-            cont=0
-        if cont>max1:
-            max1=cont
         i=i+1
+    
+    # Retornar la distancia promedio
+    pos=np.array(pos_end)
+    media=np.std(pos[:,1])
+    if media<mod:
+        print(media)
+        print(t)
+        mod=media
+        m, n = 101, 103 
+        matriz = [['-' for _ in range(n)] for _ in range(m)]
+        for x, y in pos_end:
+            matriz[x][y] = 'X'
 
-    if max1>max:
-            print(t)
-            max=max1
-            m, n = 101, 103 
-            matriz = [['-' for _ in range(n)] for _ in range(m)]
-            for x, y in pos_end:
-                matriz[x][y] = 'X'
+        for fila in matriz:
+            print(" ".join(fila))
 
-            for fila in matriz:
-                print(" ".join(fila))
-
-    t=t+1
+        t=t+1
 
